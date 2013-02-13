@@ -44,6 +44,7 @@ public class GameState extends State implements TouchListener, CollisionListener
 
         player1Score = 0;
         player2Score = 0;
+        // TEST
 
         paddle1.setPosition(display.getHeight() / 2, display.getHeight() / 4);
         paddle2.setPosition(display.getHeight() / 2, display.getHeight() - (display.getHeight() / 4));

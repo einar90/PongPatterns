@@ -18,9 +18,8 @@ public class GameOverState extends State implements TouchListener {
     private int winner;
     private Display display;
 
-    public GameOverState(int winner, Display display) {
+    public GameOverState(int winner) {
         this.winner = winner;
-        this.display = display;
         font.setTextAlign(Align.CENTER);
     }
 
@@ -42,7 +41,7 @@ public class GameOverState extends State implements TouchListener {
     public boolean onTouchDown(MotionEvent event) {
         getGame().popState();
         Score.resetScores();
-        getGame().pushState(new GameState(display));
+        getGame().pushState(new GameState());
         return true;
     }
 }

@@ -3,7 +3,6 @@ package com.example.PongPatterns;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Typeface;
-import android.view.Display;
 import android.view.MotionEvent;
 import com.example.Pong_test.R;
 import sheep.collision.CollisionLayer;
@@ -21,7 +20,6 @@ public class GameState extends State implements TouchListener, CollisionListener
     Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
     private int winScore = 21, winner = 0;
     private Sprite paddle1, paddle2, ball;
-    private Display display;
     private Point size;
     private Canvas canvas;
     private CollisionLayer collisionLayer = new CollisionLayer();
@@ -29,8 +27,7 @@ public class GameState extends State implements TouchListener, CollisionListener
     private Image paddleImage = new Image(R.drawable.paddle);
     private boolean resetSpriteStates = true;
 
-    public GameState(Display display) {
-        this.display = display;
+    public GameState() {
 
         getSprites();
         addSpritesToCollisionLayer();
@@ -165,7 +162,7 @@ public class GameState extends State implements TouchListener, CollisionListener
             winner = 2;
         }
         getGame().popState();
-        getGame().pushState(new GameOverState(winner, display));
+        getGame().pushState(new GameOverState(winner));
     }
 
 

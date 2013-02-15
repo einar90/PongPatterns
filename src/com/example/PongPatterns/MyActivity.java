@@ -15,7 +15,7 @@ public class MyActivity extends Activity {
         Game game = new Game(this, null);
         Display display = getWindowManager().getDefaultDisplay();
         //Push the main state.
-        game.pushState(new GameState(display));
+        game.pushState(new GameState());
         //View the game.
         setContentView(game);
     }

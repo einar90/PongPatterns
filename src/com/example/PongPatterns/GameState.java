@@ -35,8 +35,7 @@ public class GameState extends State implements TouchListener, CollisionListener
 
         paddle1 = new Sprite(paddleImage);
         paddle2 = new Sprite(paddleImage);
-        ball = new Sprite(ballImage);
-        //ball = Ball.instance(ballImage);
+        ball = Ball.getBall();
 
         collisionLayer.addSprite(paddle1);
         collisionLayer.addSprite(paddle2);
@@ -48,8 +47,10 @@ public class GameState extends State implements TouchListener, CollisionListener
         paddle1.setPosition(display.getHeight() / 2, display.getHeight() / 4);
         paddle2.setPosition(display.getHeight() / 2, display.getHeight() - (display.getHeight() / 4));
 
-        ball.setPosition(display.getWidth() / 2, display.getHeight() / 2);
-        ball.setSpeed(100, 100);
+        Ball.setInitialState(display);
+
+        //ball.setPosition(display.getWidth() / 2, display.getHeight() / 2);
+        //ball.setSpeed(100, 100);
 
         paddle1.addCollisionListener(this);
         paddle2.addCollisionListener(this);

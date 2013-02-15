@@ -15,12 +15,17 @@ import sheep.graphics.Image;
  * Package: com.example.PongPatterns
  */
 public class Ball extends Sprite {
-    private static final Ball ball = (Ball) new Sprite(new Image(R.drawable.ball));
+
+    private static Sprite ball = null;
+    private static Image ballGraphics = new Image(R.drawable.ball);
 
     protected Ball() {
     }
 
-    public static Ball getBall() {
+    public static Sprite getBall() {
+        if (ball == null) {
+            ball = new Sprite(ballGraphics);
+        }
         return ball;
     }
 

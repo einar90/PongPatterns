@@ -1,7 +1,6 @@
 package com.example.PongPatterns;
 
 import android.graphics.Point;
-import android.view.Display;
 import com.example.Pong_test.R;
 import sheep.game.Sprite;
 import sheep.graphics.Image;
@@ -26,10 +25,20 @@ public class Ball extends Sprite {
         return ball;
     }
 
-    public static void setInitialState(Display display) {
-        Point size = new Point();
-        display.getSize(size);
+    public static void setInitialState(Point size) {
         ball.setPosition(size.x / 2, size.y / 2);
         ball.setSpeed(150, 100);
+    }
+
+    public static double getHeight() {
+        return ballGraphics.getHeight();
+    }
+
+    public static double getWidth() {
+        return ballGraphics.getWidth();
+    }
+
+    public static void paddleBounce() {
+        ball.setYSpeed(-ball.getSpeed().getY());
     }
 }

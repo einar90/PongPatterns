@@ -1,7 +1,6 @@
 package com.example.PongPatterns;
 
 import android.graphics.Point;
-import android.view.Display;
 import com.example.Pong_test.R;
 import sheep.game.Sprite;
 import sheep.graphics.Image;
@@ -28,9 +27,7 @@ public class Paddle extends Sprite {
         return paddle2;
     }
 
-    public static void setInitialPaddlePositions(Display display) {
-        Point size = new Point();
-        display.getSize(size);
+    public static void setInitialPaddlePositions(Point size) {
         paddle1.setPosition(size.x / 2, size.y / 5);
         paddle2.setPosition(size.x / 2, size.y - size.y / 5);
     }

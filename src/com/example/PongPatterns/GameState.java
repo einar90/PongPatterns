@@ -1,6 +1,7 @@
 package com.example.PongPatterns;
 
 import android.graphics.Canvas;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -18,17 +19,15 @@ import sheep.input.TouchListener;
 public class GameState extends State implements TouchListener, CollisionListener {
 
     Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
-    private int canvasHeight, canvasWidth;
-    private int player1Score, player2Score;
     private int winScore = 21, winner = 0;
     private Sprite paddle1, paddle2, ball;
     private Display display;
+    private Point size;
     private Canvas canvas;
     private CollisionLayer collisionLayer = new CollisionLayer();
     private World world = new World();
     private Image paddleImage = new Image(R.drawable.paddle);
-    private Image ballImage = new Image(R.drawable.ball);
-
+    private boolean resetSpriteStates = true;
 
     public GameState(Display display) {
         this.display = display;
@@ -36,13 +35,13 @@ public class GameState extends State implements TouchListener, CollisionListener
         getSprites();
         addSpritesToCollisionLayer();
         addCollisionListeners();
-        setInitialSpriteStates(display);
-
-        player1Score = 0;
-        player2Score = 0;
 
 
         world.addLayer(collisionLayer);
+    }
+
+    public Point getSize() {
+        return size;
     }
 
     private void addCollisionListeners() {
@@ -57,26 +56,25 @@ public class GameState extends State implements TouchListener, CollisionListener
         ball = Ball.getBall();
     }
 
-    private void setInitialSpriteStates(Display display) {
-        Ball.setInitialState(display);
-        Paddle.setInitialPaddlePositions(display);
-    }
-
     private void addSpritesToCollisionLayer() {
         collisionLayer.addSprite(paddle1);
         collisionLayer.addSprite(paddle2);
         collisionLayer.addSprite(ball);
     }
 
+    private void setInitialSpriteStates() {
+        Ball.setInitialState(size);
+        Paddle.setInitialPaddlePositions(size);
+    }
+
     public void draw(Canvas canv) {
         this.canvas = canv;
-        canvasHeight = canvas.getHeight();
-        canvasWidth = canvas.getWidth();
+        size = new Point(canvas.getWidth(), canvas.getHeight());
 
         canvas.drawPaint(Color.BLACK);
 
-        canvas.drawText("Score player 1: " + player1Score, 20, 30, font);
-        canvas.drawText("Score player 2: " + player2Score, canvasWidth - 350, canvasHeight - 20, font);
+        canvas.drawText("Score player 1: " + Score.getScore1(), 20, 30, font);
+        canvas.drawText("Score player 2: " + Score.getScore2(), size.x - 350, size.y - 20, font);
 
         paddle1.draw(canvas);
         paddle2.draw(canvas);
@@ -86,6 +84,11 @@ public class GameState extends State implements TouchListener, CollisionListener
 
     public void update(float dt) {
         if (canvas != null) {
+
+            if (resetSpriteStates) {
+                setInitialSpriteStates();
+                resetSpriteStates = false;
+            }
 
             checkWallCollision();
 
@@ -102,13 +105,13 @@ public class GameState extends State implements TouchListener, CollisionListener
     }
 
     public boolean onTouchMove(MotionEvent event) {
-        if (event.getY() < display.getHeight() / 2) {
-            if (event.getX() < (display.getWidth() - (paddleImage.getWidth() / 2)) && event.getX() > (paddleImage.getWidth() / 2)) {
+        if (event.getY() < size.y / 2) {
+            if (event.getX() < (size.x - (paddleImage.getWidth() / 2)) && event.getX() > (paddleImage.getWidth() / 2)) {
                 paddle1.setPosition(event.getX(), paddle1.getPosition().getY());
                 return true;
             }
         } else {
-            if (event.getX() < (display.getWidth() - (paddleImage.getWidth() / 2)) && event.getX() > (paddleImage.getWidth() / 2)) {
+            if (event.getX() < (size.x - (paddleImage.getWidth() / 2)) && event.getX() > (paddleImage.getWidth() / 2)) {
                 paddle2.setPosition(event.getX(), paddle2.getPosition().getY());
                 return true;
             }
@@ -120,49 +123,45 @@ public class GameState extends State implements TouchListener, CollisionListener
     public void collided(Sprite a, Sprite b) {
 
         // Checking for collision with player 2 paddle
-        if (ball.getY() > display.getHeight() - (display.getHeight() / 4) - paddleImage.getHeight() - (ballImage.getHeight() / 2)) {
+        if (ball.getY() > size.y - (size.y / 5) - paddleImage.getHeight() - (Ball.getHeight() / 2)) {
             ball.setYSpeed(-ball.getSpeed().getY());
-            ball.setPosition(ball.getX(), ball.getY() - (ballImage.getHeight() / 2));
+            ball.setPosition(ball.getX(), ball.getY() - ((int) Ball.getHeight()));
         }
 
         // Checking for collision with player 1 paddle
-        if (ball.getY() < (display.getHeight() / 4) + paddleImage.getHeight() + (ballImage.getHeight() / 2)) {
+        if (ball.getY() < (size.y / 5) + paddleImage.getHeight() + (Ball.getHeight() / 2)) {
             ball.setYSpeed(-ball.getSpeed().getY());
-            ball.setPosition(ball.getX(), ball.getY() + (ballImage.getHeight() / 2));
+            ball.setPosition(ball.getX(), ball.getY() + ((int) Ball.getHeight()));
         }
     }
 
     public void checkWallCollision() {
-        if (ball.getX() >= (canvasWidth - ballImage.getWidth() / 2) || ball.getX() <= (ballImage.getWidth() / 2)) {
+        if (ball.getX() >= (size.x - Ball.getWidth()) || ball.getX() <= (Ball.getWidth())) {
             ball.setSpeed(-ball.getSpeed().getX(), ball.getSpeed().getY());
         }
     }
 
     public boolean isGameOver() {
-        if (player1Score >= winScore || player2Score >= winScore) return true;
+        if (Score.getScore1() >= winScore || Score.getScore2() >= winScore) return true;
         else return false;
     }
 
     private void checkPlayerPoint() {
-        if (ball.getY() >= canvasHeight) {
-            player1Score++;
-            resetBall();
+        if (ball.getY() >= size.y) {
+            Score.increment1();
+            resetSpriteStates = true;
         } else if (ball.getY() <= 0) {
-            player2Score++;
-            resetBall();
+            Score.increment2();
+            resetSpriteStates = true;
         }
     }
 
-    private void resetBall() {
-        ball.setPosition(display.getWidth() / 2, display.getHeight() / 2);
-        ball.setYSpeed(-ball.getSpeed().getY());
-    }
 
     private void endGame() {
-        if (player1Score == winScore) {
+        if (Score.getScore1() == winScore) {
             winner = 1;
         }
-        if (player2Score == winScore) {
+        if (Score.getScore2() == winScore) {
             winner = 2;
         }
         getGame().popState();

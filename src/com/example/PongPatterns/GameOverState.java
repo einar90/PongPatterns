@@ -41,6 +41,7 @@ public class GameOverState extends State implements TouchListener {
 
     public boolean onTouchDown(MotionEvent event) {
         getGame().popState();
+        Score.resetScores();
         getGame().pushState(new GameState(display));
         return true;
     }

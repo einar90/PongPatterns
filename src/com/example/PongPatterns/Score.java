@@ -28,4 +28,9 @@ public class Score {
         score2++;
     }
 
+    public static void resetScores() {
+        score1 = 0;
+        score2 = 0;
+    }
+
 }

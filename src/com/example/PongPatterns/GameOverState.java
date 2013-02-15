@@ -18,8 +18,10 @@ public class GameOverState extends State implements TouchListener {
     private int winner;
     private Display display;
 
-    public GameOverState(int winner) {
-        this.winner = winner;
+    public GameOverState() {
+        if (Score.getScore1() > Score.getScore2()) {
+            winner = 1;
+        } else winner = 2;
         font.setTextAlign(Align.CENTER);
     }
 

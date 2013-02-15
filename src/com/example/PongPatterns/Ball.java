@@ -34,15 +34,17 @@ public class Ball extends Sprite {
         }
     }
 
-    public static double getHeight() {
-        return ballGraphics.getHeight();
-    }
-
-    public static double getWidth() {
-        return ballGraphics.getWidth();
+    public static Point size() {
+        return new Point((int) ballGraphics.getWidth(), (int) ballGraphics.getHeight());
     }
 
     public static void paddleBounce() {
         ball.setYSpeed(-ball.getSpeed().getY());
+    }
+
+    public static void checkBallWallCollision(Point boardSize) {
+        if (ball.getX() + size().x / 2 >= boardSize.x || ball.getX() - size().x / 2 <= 0) {
+            ball.setXSpeed(-ball.getSpeed().getX());
+        }
     }
 }

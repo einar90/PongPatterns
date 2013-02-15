@@ -59,8 +59,8 @@ public class GameState extends State implements TouchListener, CollisionListener
 
         canvas.drawPaint(Color.BLACK);
 
-        canvas.drawText("Score player 1: " + Score.getScore1(), 20, 30, font);
-        canvas.drawText("Score player 2: " + Score.getScore2(), boardSize.x - 350, boardSize.y - 20, font);
+        canvas.drawText(Score.getString1(), 20, 30, font);
+        canvas.drawText(Score.getString2(), boardSize.x - 350, boardSize.y - 20, font);
 
         paddle1.draw(canvas);
         paddle2.draw(canvas);
@@ -70,22 +70,20 @@ public class GameState extends State implements TouchListener, CollisionListener
 
     public void update(float dt) {
         // Update before first draw causes a crash because the board size is set in the draw method
-        if (!firstDrawExecuted) {
-            return;
-        }
+        if (!firstDrawExecuted) return;
 
         if (resetSpriteStates) {
             setInitialSpriteStates();
             resetSpriteStates = false;
         }
 
-        checkWallCollision();
-
         if (isGameOver()) {
             endGame();
         } else {
             checkPlayerPoint();
         }
+
+        Ball.checkBallWallCollision(boardSize);
 
         ball.update(dt);
         paddle1.update(dt);
@@ -112,21 +110,15 @@ public class GameState extends State implements TouchListener, CollisionListener
     public void collided(Sprite a, Sprite b) {
 
         // Checking for collision with player 2 paddle
-        if (ball.getY() > boardSize.y - (boardSize.y / 5) - Paddle.size().y - (Ball.getHeight() / 2)) {
+        if (ball.getY() > boardSize.y - (boardSize.y / 5) - Paddle.size().y - (Ball.size().y / 2)) {
             ball.setYSpeed(-ball.getSpeed().getY());
-            ball.setPosition(ball.getX(), ball.getY() - ((int) Ball.getHeight()));
+            ball.setPosition(ball.getX(), ball.getY() - ((int) Ball.size().y));
         }
 
         // Checking for collision with player 1 paddle
-        if (ball.getY() < (boardSize.y / 5) + Paddle.size().y + (Ball.getHeight() / 2)) {
+        if (ball.getY() < (boardSize.y / 5) + Paddle.size().y + (Ball.size().y / 2)) {
             ball.setYSpeed(-ball.getSpeed().getY());
-            ball.setPosition(ball.getX(), ball.getY() + ((int) Ball.getHeight()));
-        }
-    }
-
-    public void checkWallCollision() {
-        if (ball.getX() >= (boardSize.x - Ball.getWidth()) || ball.getX() <= (Ball.getWidth())) {
-            ball.setSpeed(-ball.getSpeed().getX(), ball.getSpeed().getY());
+            ball.setPosition(ball.getX(), ball.getY() + ((int) Ball.size().y));
         }
     }
 

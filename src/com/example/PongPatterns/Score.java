@@ -20,6 +20,14 @@ public class Score {
         return score2;
     }
 
+    public static String getString1() {
+        return ("Player 1: " + score1);
+    }
+
+    public static String getString2() {
+        return ("Player 2: " + score2);
+    }
+
     public static void increment1() {
         score1++;
     }

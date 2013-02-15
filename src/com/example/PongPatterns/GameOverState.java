@@ -13,7 +13,7 @@ import sheep.input.TouchListener;
 public class GameOverState extends State implements TouchListener {
 
     private World world = new World();
-    Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
+    Font font = new Font(255, 255, 255, 20, Typeface.MONOSPACE, Typeface.NORMAL);
     private int winner;
 
     public GameOverState() {

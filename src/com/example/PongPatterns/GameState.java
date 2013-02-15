@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.view.MotionEvent;
-import com.example.Pong_test.R;
 import sheep.collision.CollisionLayer;
 import sheep.collision.CollisionListener;
 import sheep.game.Sprite;
@@ -12,27 +11,22 @@ import sheep.game.State;
 import sheep.game.World;
 import sheep.graphics.Color;
 import sheep.graphics.Font;
-import sheep.graphics.Image;
 import sheep.input.TouchListener;
 
 public class GameState extends State implements TouchListener, CollisionListener {
 
-    Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
+    Font font = new Font(255, 255, 255, 20, Typeface.MONOSPACE, Typeface.NORMAL);
     private Sprite paddle1, paddle2, ball;
     private Point boardSize;
-    private Canvas canvas;
     private CollisionLayer collisionLayer = new CollisionLayer();
     private World world = new World();
-    private Image paddleImage = new Image(R.drawable.paddle);
     private boolean resetSpriteStates = true;
+    private boolean firstDrawExecuted = false;
 
     public GameState() {
-
         getSprites();
         addSpritesToCollisionLayer();
         addCollisionListeners();
-
-
         world.addLayer(collisionLayer);
     }
 
@@ -59,8 +53,8 @@ public class GameState extends State implements TouchListener, CollisionListener
         Paddle.setInitialPaddlePositions(boardSize);
     }
 
-    public void draw(Canvas canv) {
-        this.canvas = canv;
+    public void draw(Canvas canvas) {
+        firstDrawExecuted = true;
         boardSize = new Point(canvas.getWidth(), canvas.getHeight());
 
         canvas.drawPaint(Color.BLACK);
@@ -75,35 +69,38 @@ public class GameState extends State implements TouchListener, CollisionListener
     }
 
     public void update(float dt) {
-        if (canvas != null) {
-
-            if (resetSpriteStates) {
-                setInitialSpriteStates();
-                resetSpriteStates = false;
-            }
-
-            checkWallCollision();
-
-            if (!isGameOver()) {
-                checkPlayerPoint();
-            } else {
-                endGame();
-            }
-
-            ball.update(dt);
-            paddle2.update(dt);
-            world.update(dt);
+        // Update before first draw causes a crash because the board size is set in the draw method
+        if (!firstDrawExecuted) {
+            return;
         }
+
+        if (resetSpriteStates) {
+            setInitialSpriteStates();
+            resetSpriteStates = false;
+        }
+
+        checkWallCollision();
+
+        if (isGameOver()) {
+            endGame();
+        } else {
+            checkPlayerPoint();
+        }
+
+        ball.update(dt);
+        paddle1.update(dt);
+        paddle2.update(dt);
+        world.update(dt);
     }
 
     public boolean onTouchMove(MotionEvent event) {
         if (event.getY() < boardSize.y / 2) {
-            if (event.getX() < (boardSize.x - (paddleImage.getWidth() / 2)) && event.getX() > (paddleImage.getWidth() / 2)) {
+            if (event.getX() < (boardSize.x - (Paddle.size().x / 2)) && event.getX() > (Paddle.size().x / 2)) {
                 paddle1.setPosition(event.getX(), paddle1.getPosition().getY());
                 return true;
             }
         } else {
-            if (event.getX() < (boardSize.x - (paddleImage.getWidth() / 2)) && event.getX() > (paddleImage.getWidth() / 2)) {
+            if (event.getX() < (boardSize.x - (Paddle.size().x / 2)) && event.getX() > (Paddle.size().x / 2)) {
                 paddle2.setPosition(event.getX(), paddle2.getPosition().getY());
                 return true;
             }
@@ -115,13 +112,13 @@ public class GameState extends State implements TouchListener, CollisionListener
     public void collided(Sprite a, Sprite b) {
 
         // Checking for collision with player 2 paddle
-        if (ball.getY() > boardSize.y - (boardSize.y / 5) - paddleImage.getHeight() - (Ball.getHeight() / 2)) {
+        if (ball.getY() > boardSize.y - (boardSize.y / 5) - Paddle.size().y - (Ball.getHeight() / 2)) {
             ball.setYSpeed(-ball.getSpeed().getY());
             ball.setPosition(ball.getX(), ball.getY() - ((int) Ball.getHeight()));
         }
 
         // Checking for collision with player 1 paddle
-        if (ball.getY() < (boardSize.y / 5) + paddleImage.getHeight() + (Ball.getHeight() / 2)) {
+        if (ball.getY() < (boardSize.y / 5) + Paddle.size().y + (Ball.getHeight() / 2)) {
             ball.setYSpeed(-ball.getSpeed().getY());
             ball.setPosition(ball.getX(), ball.getY() + ((int) Ball.getHeight()));
         }
@@ -147,7 +144,6 @@ public class GameState extends State implements TouchListener, CollisionListener
             resetSpriteStates = true;
         }
     }
-
 
     private void endGame() {
         getGame().popState();

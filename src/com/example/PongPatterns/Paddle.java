@@ -32,4 +32,8 @@ public class Paddle extends Sprite {
         paddle2.setPosition(size.x / 2, size.y - size.y / 5);
     }
 
+    public static Point size() {
+        return new Point((int) paddleImage.getWidth(), (int) paddleImage.getHeight());
+    }
+
 }

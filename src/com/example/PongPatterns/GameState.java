@@ -30,29 +30,6 @@ public class GameState extends State implements TouchListener, CollisionListener
         world.addLayer(collisionLayer);
     }
 
-    private void addCollisionListeners() {
-        paddle1.addCollisionListener(this);
-        paddle2.addCollisionListener(this);
-        ball.addCollisionListener(this);
-    }
-
-    private void getSprites() {
-        paddle1 = Paddle.getPaddle1();
-        paddle2 = Paddle.getPaddle2();
-        ball = Ball.getBall();
-    }
-
-    private void addSpritesToCollisionLayer() {
-        collisionLayer.addSprite(paddle1);
-        collisionLayer.addSprite(paddle2);
-        collisionLayer.addSprite(ball);
-    }
-
-    private void setInitialSpriteStates() {
-        Ball.setInitialState(boardSize);
-        Paddle.setInitialPaddlePositions(boardSize);
-    }
-
     public void draw(Canvas canvas) {
         firstDrawExecuted = true;
         boardSize = new Point(canvas.getWidth(), canvas.getHeight());
@@ -83,12 +60,16 @@ public class GameState extends State implements TouchListener, CollisionListener
             checkPlayerPoint();
         }
 
-        Ball.checkBallWallCollision(boardSize);
+        Ball.wallBounce(boardSize);
 
         ball.update(dt);
         paddle1.update(dt);
         paddle2.update(dt);
         world.update(dt);
+    }
+
+    public void collided(Sprite a, Sprite b) {
+        Ball.paddleBounce();
     }
 
     public boolean onTouchMove(MotionEvent event) {
@@ -107,8 +88,27 @@ public class GameState extends State implements TouchListener, CollisionListener
         return false;
     }
 
-    public void collided(Sprite a, Sprite b) {
-        Ball.paddleBounce();
+    private void addCollisionListeners() {
+        paddle1.addCollisionListener(this);
+        paddle2.addCollisionListener(this);
+        ball.addCollisionListener(this);
+    }
+
+    private void getSprites() {
+        paddle1 = Paddle.getPaddle1();
+        paddle2 = Paddle.getPaddle2();
+        ball = Ball.getBall();
+    }
+
+    private void addSpritesToCollisionLayer() {
+        collisionLayer.addSprite(paddle1);
+        collisionLayer.addSprite(paddle2);
+        collisionLayer.addSprite(ball);
+    }
+
+    private void setInitialSpriteStates() {
+        Ball.setInitialState(boardSize);
+        Paddle.setInitialPaddlePositions(boardSize);
     }
 
     public boolean isGameOver() {

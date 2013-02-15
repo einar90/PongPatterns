@@ -38,8 +38,14 @@ public class Ball extends Sprite {
         return new Point((int) ballGraphics.getWidth(), (int) ballGraphics.getHeight());
     }
 
-    public static void checkBallWallCollision(Point boardSize) {
-        if (ball.getX() + size().x / 2 >= boardSize.x || ball.getX() - size().x / 2 <= 0) {
+    public static void wallBounce(Point boardSize) {
+        if (ball.getX() + size().x / 2 >= boardSize.x) {
+            ball.setPosition(boardSize.x - size().x / 2, ball.getY());
+            ball.setXSpeed(-ball.getSpeed().getX());
+        }
+
+        if (ball.getX() - size().x / 2 <= 0) {
+            ball.setPosition(size().x / 2, ball.getY());
             ball.setXSpeed(-ball.getSpeed().getX());
         }
     }

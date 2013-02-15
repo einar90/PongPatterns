@@ -27,7 +27,11 @@ public class Ball extends Sprite {
 
     public static void setInitialState(Point size) {
         ball.setPosition(size.x / 2, size.y / 2);
-        ball.setSpeed(150, 100);
+        if (ball.getSpeed().getY() == 0) {
+            ball.setSpeed(150, 100);
+        } else {
+            ball.setYSpeed(-ball.getSpeed().getY());
+        }
     }
 
     public static double getHeight() {

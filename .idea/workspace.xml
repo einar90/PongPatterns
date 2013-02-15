@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dec1670-bfbe-4016-943f-c4497e8eaf2e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java" afterPath="$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java" afterPath="$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java" afterPath="$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/PongPatterns/MyActivity.java" afterPath="$PROJECT_DIR$/src/com/example/PongPatterns/MyActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -15,8 +14,8 @@
     <file path="$PROJECT_DIR$/../Pong2/.idea/workspace.xml" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360925197857" ignored="false" />
     <file path="/GameState.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360941798932" ignored="false" />
     <file path="/GameOverState.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360933059316" ignored="false" />
-    <file path="/Dummy.txt" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360941951467" ignored="false" />
-    <file path="/Ball.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360939909315" ignored="false" />
+    <file path="/Dummy.txt" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360942066493" ignored="false" />
+    <file path="/Ball.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360942393959" ignored="false" />
     <file path="/Paddle.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360939927704" ignored="false" />
     <file path="/Score.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360941090571" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,7 +79,7 @@
       <file leaf-file-name="GameState.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="52" selection-start="5024" selection-end="5024" vertical-scroll-proportion="-22.84">
+            <state line="164" column="52" selection-start="5024" selection-end="5024" vertical-scroll-proportion="2.44">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,33 +109,17 @@
         <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Paddle.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="29" column="62" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ball.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Ball.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="52" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/MyActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="45" selection-start="608" selection-end="608" vertical-scroll-proportion="0.49070632">
+            <state line="29" column="39" selection-start="691" selection-end="691" vertical-scroll-proportion="0.5762082">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,11 +150,11 @@
         <option value="$PROJECT_DIR$/src/com/example/Pong_test/GameOverState.java" />
         <option value="$PROJECT_DIR$/src/com/example/Pong_test/GameState.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/Paddle.java" />
-        <option value="$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/Score.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/MyActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java" />
       </list>
     </option>
   </component>
@@ -467,7 +450,11 @@
       <created>1360941956171</created>
       <updated>1360941956171</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="All references to display removed">
+      <created>1360942071674</created>
+      <updated>1360942071674</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -539,7 +526,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Preparing to remove all references to Display" />
+    <option name="LAST_COMMIT_MESSAGE" value="All references to display removed" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -557,6 +544,7 @@
     <MESSAGE value="Ball singleton now working" />
     <MESSAGE value="Added Paddle and Score classes" />
     <MESSAGE value="Preparing to remove all references to Display" />
+    <MESSAGE value="All references to display removed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -569,9 +557,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="33" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -587,7 +573,9 @@
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="32" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -608,9 +596,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="33" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -637,27 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="52" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Paddle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="62" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Score.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="33" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0">
@@ -667,7 +632,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="52" selection-start="5024" selection-end="5024" vertical-scroll-proportion="-22.84">
+        <state line="164" column="52" selection-start="5024" selection-end="5024" vertical-scroll-proportion="2.44">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -681,9 +646,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.08921933">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="45" selection-start="608" selection-end="608" vertical-scroll-proportion="0.49070632">
+        <state line="3" column="25" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0669145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Paddle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="62" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="39" selection-start="691" selection-end="691" vertical-scroll-proportion="0.5762082">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

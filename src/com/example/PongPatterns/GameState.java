@@ -18,7 +18,6 @@ import sheep.input.TouchListener;
 public class GameState extends State implements TouchListener, CollisionListener {
 
     Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
-    private int winScore = 3;
     private Sprite paddle1, paddle2, ball;
     private Point boardSize;
     private Canvas canvas;
@@ -135,8 +134,8 @@ public class GameState extends State implements TouchListener, CollisionListener
     }
 
     public boolean isGameOver() {
-        if (Score.getScore1() >= winScore || Score.getScore2() >= winScore) return true;
-        else return false;
+        int winScore = 3;
+        return Score.getScore1() >= winScore || Score.getScore2() >= winScore;
     }
 
     private void checkPlayerPoint() {

@@ -3,7 +3,6 @@ package com.example.PongPatterns;
 import android.graphics.Canvas;
 import android.graphics.Paint.Align;
 import android.graphics.Typeface;
-import android.view.Display;
 import android.view.MotionEvent;
 import sheep.game.State;
 import sheep.game.World;
@@ -16,7 +15,6 @@ public class GameOverState extends State implements TouchListener {
     private World world = new World();
     Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
     private int winner;
-    private Display display;
 
     public GameOverState() {
         if (Score.getScore1() > Score.getScore2()) {

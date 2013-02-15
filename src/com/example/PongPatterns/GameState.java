@@ -17,6 +17,7 @@ import sheep.input.TouchListener;
 
 public class GameState extends State implements TouchListener, CollisionListener {
 
+    Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
     private int canvasHeight, canvasWidth;
     private int player1Score, player2Score;
     private int winScore = 21, winner = 0;
@@ -27,38 +28,45 @@ public class GameState extends State implements TouchListener, CollisionListener
     private World world = new World();
     private Image paddleImage = new Image(R.drawable.paddle);
     private Image ballImage = new Image(R.drawable.ball);
-    Font font = new Font(255, 255, 255, 30, Typeface.MONOSPACE, Typeface.NORMAL);
 
 
     public GameState(Display display) {
         this.display = display;
 
-        paddle1 = new Sprite(paddleImage);
-        paddle2 = new Sprite(paddleImage);
-        ball = Ball.getBall();
-
-        collisionLayer.addSprite(paddle1);
-        collisionLayer.addSprite(paddle2);
-        collisionLayer.addSprite(ball);
+        getSprites();
+        addSpritesToCollisionLayer();
+        addCollisionListeners();
+        setInitialSpriteStates(display);
 
         player1Score = 0;
         player2Score = 0;
 
-        paddle1.setPosition(display.getHeight() / 2, display.getHeight() / 4);
-        paddle2.setPosition(display.getHeight() / 2, display.getHeight() - (display.getHeight() / 4));
-
-        Ball.setInitialState(display);
-
-        //ball.setPosition(display.getWidth() / 2, display.getHeight() / 2);
-        //ball.setSpeed(100, 100);
-
-        paddle1.addCollisionListener(this);
-        paddle2.addCollisionListener(this);
-        ball.addCollisionListener(this);
 
         world.addLayer(collisionLayer);
     }
 
+    private void addCollisionListeners() {
+        paddle1.addCollisionListener(this);
+        paddle2.addCollisionListener(this);
+        ball.addCollisionListener(this);
+    }
+
+    private void getSprites() {
+        paddle1 = Paddle.getPaddle1();
+        paddle2 = Paddle.getPaddle2();
+        ball = Ball.getBall();
+    }
+
+    private void setInitialSpriteStates(Display display) {
+        Ball.setInitialState(display);
+        Paddle.setInitialPaddlePositions(display);
+    }
+
+    private void addSpritesToCollisionLayer() {
+        collisionLayer.addSprite(paddle1);
+        collisionLayer.addSprite(paddle2);
+        collisionLayer.addSprite(ball);
+    }
 
     public void draw(Canvas canv) {
         this.canvas = canv;
@@ -75,7 +83,6 @@ public class GameState extends State implements TouchListener, CollisionListener
         ball.draw(canvas);
         world.draw(canvas);
     }
-
 
     public void update(float dt) {
         if (canvas != null) {

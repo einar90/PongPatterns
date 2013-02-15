@@ -16,16 +16,13 @@ import sheep.graphics.Image;
  */
 public class Ball extends Sprite {
 
-    private static Sprite ball = null;
     private static Image ballGraphics = new Image(R.drawable.ball);
+    private static final Sprite ball = new Sprite(ballGraphics);
 
     protected Ball() {
     }
 
     public static Sprite getBall() {
-        if (ball == null) {
-            ball = new Sprite(ballGraphics);
-        }
         return ball;
     }
 

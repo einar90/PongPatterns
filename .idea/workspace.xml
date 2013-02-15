@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2dec1670-bfbe-4016-943f-c4497e8eaf2e" name="Default" comment="Tu">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java" afterPath="$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java" afterPath="$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java" />
+    <list default="true" id="2dec1670-bfbe-4016-943f-c4497e8eaf2e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pong_test.iws" />
@@ -14,7 +12,7 @@
     <file path="$PROJECT_DIR$/../Pong2/.idea/workspace.xml" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360925197857" ignored="false" />
     <file path="/GameState.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360954695049" ignored="false" />
     <file path="/GameOverState.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360951830644" ignored="false" />
-    <file path="/Dummy.txt" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360955357832" ignored="false" />
+    <file path="/Dummy.txt" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360955369650" ignored="false" />
     <file path="/Ball.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360955144668" ignored="false" />
     <file path="/Paddle.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360954826066" ignored="false" />
     <file path="/Score.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360954068515" ignored="false" />
@@ -79,14 +77,20 @@
       <file leaf-file-name="GameState.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="21" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.78314745">
+            <state line="96" column="30" selection-start="2947" selection-end="2947" vertical-scroll-proportion="1.0617129">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GameState#0;class#GameState#0" expanded="false" />
                 <element signature="method#draw#0;class#GameState#0" expanded="false" />
                 <element signature="method#update#0;class#GameState#0" expanded="false" />
                 <element signature="method#collided#0;class#GameState#0" expanded="false" />
-                <element signature="method#onTouchMove#0;class#GameState#0" expanded="false" />
+                <element signature="method#addCollisionListeners#0;class#GameState#0" expanded="false" />
+                <element signature="method#getSprites#0;class#GameState#0" expanded="false" />
+                <element signature="method#addSpritesToCollisionLayer#0;class#GameState#0" expanded="false" />
+                <element signature="method#setInitialSpriteStates#0;class#GameState#0" expanded="false" />
+                <element signature="method#isGameOver#0;class#GameState#0" expanded="false" />
+                <element signature="method#checkPlayerPoint#0;class#GameState#0" expanded="false" />
+                <element signature="method#endGame#0;class#GameState#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -485,12 +489,36 @@
       <created>1360954940871</created>
       <updated>1360954940871</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Tuned wall bounce; reorganized code">
+      <created>1360955371815</created>
+      <updated>1360955371816</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="1400" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -505,13 +533,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930756" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2684729" sideWeight="0.67069244" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -557,7 +585,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved all bounce operations to Ball class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tuned wall bounce; reorganized code" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -582,6 +610,7 @@
     <MESSAGE value="Paddle size is now retrieved from the Paddle class" />
     <MESSAGE value="Score strings moved to Score class" />
     <MESSAGE value="Moved all bounce operations to Ball class" />
+    <MESSAGE value="Tuned wall bounce; reorganized code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -607,7 +636,13 @@
             <element signature="method#draw#0;class#GameState#0" expanded="false" />
             <element signature="method#update#0;class#GameState#0" expanded="false" />
             <element signature="method#collided#0;class#GameState#0" expanded="false" />
-            <element signature="method#onTouchMove#0;class#GameState#0" expanded="false" />
+            <element signature="method#addCollisionListeners#0;class#GameState#0" expanded="false" />
+            <element signature="method#getSprites#0;class#GameState#0" expanded="false" />
+            <element signature="method#addSpritesToCollisionLayer#0;class#GameState#0" expanded="false" />
+            <element signature="method#setInitialSpriteStates#0;class#GameState#0" expanded="false" />
+            <element signature="method#isGameOver#0;class#GameState#0" expanded="false" />
+            <element signature="method#checkPlayerPoint#0;class#GameState#0" expanded="false" />
+            <element signature="method#endGame#0;class#GameState#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -653,7 +688,13 @@
             <element signature="method#draw#0;class#GameState#0" expanded="false" />
             <element signature="method#update#0;class#GameState#0" expanded="false" />
             <element signature="method#collided#0;class#GameState#0" expanded="false" />
-            <element signature="method#onTouchMove#0;class#GameState#0" expanded="false" />
+            <element signature="method#addCollisionListeners#0;class#GameState#0" expanded="false" />
+            <element signature="method#getSprites#0;class#GameState#0" expanded="false" />
+            <element signature="method#addSpritesToCollisionLayer#0;class#GameState#0" expanded="false" />
+            <element signature="method#setInitialSpriteStates#0;class#GameState#0" expanded="false" />
+            <element signature="method#isGameOver#0;class#GameState#0" expanded="false" />
+            <element signature="method#checkPlayerPoint#0;class#GameState#0" expanded="false" />
+            <element signature="method#endGame#0;class#GameState#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -724,14 +765,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="21" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.78314745">
+        <state line="96" column="30" selection-start="2947" selection-end="2947" vertical-scroll-proportion="1.0617129">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#GameState#0;class#GameState#0" expanded="false" />
             <element signature="method#draw#0;class#GameState#0" expanded="false" />
             <element signature="method#update#0;class#GameState#0" expanded="false" />
             <element signature="method#collided#0;class#GameState#0" expanded="false" />
-            <element signature="method#onTouchMove#0;class#GameState#0" expanded="false" />
+            <element signature="method#addCollisionListeners#0;class#GameState#0" expanded="false" />
+            <element signature="method#getSprites#0;class#GameState#0" expanded="false" />
+            <element signature="method#addSpritesToCollisionLayer#0;class#GameState#0" expanded="false" />
+            <element signature="method#setInitialSpriteStates#0;class#GameState#0" expanded="false" />
+            <element signature="method#isGameOver#0;class#GameState#0" expanded="false" />
+            <element signature="method#checkPlayerPoint#0;class#GameState#0" expanded="false" />
+            <element signature="method#endGame#0;class#GameState#0" expanded="false" />
           </folding>
         </state>
       </provider>

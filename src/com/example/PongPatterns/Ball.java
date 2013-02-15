@@ -38,13 +38,24 @@ public class Ball extends Sprite {
         return new Point((int) ballGraphics.getWidth(), (int) ballGraphics.getHeight());
     }
 
-    public static void paddleBounce() {
-        ball.setYSpeed(-ball.getSpeed().getY());
-    }
-
     public static void checkBallWallCollision(Point boardSize) {
         if (ball.getX() + size().x / 2 >= boardSize.x || ball.getX() - size().x / 2 <= 0) {
             ball.setXSpeed(-ball.getSpeed().getX());
         }
+    }
+
+    public static void paddleBounce() {
+        // Checking for collision with player 1 paddle
+        if (ball.getY() - size().y / 2 < Paddle.paddle1BounceLine()) {
+            ball.setYSpeed(-ball.getSpeed().getY());
+            ball.setPosition(ball.getX(), Paddle.paddle1BounceLine() + size().y / 2);
+        }
+        // Checking for collision with player 2 paddle
+        if (ball.getY() + size().y / 2 > Paddle.paddle2BounceLine()) {
+            ball.setYSpeed(-ball.getSpeed().getY());
+            ball.setPosition(ball.getX(), Paddle.paddle2BounceLine() - size().y / 2);
+        }
+
+
     }
 }

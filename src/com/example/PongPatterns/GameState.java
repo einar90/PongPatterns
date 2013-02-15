@@ -108,18 +108,7 @@ public class GameState extends State implements TouchListener, CollisionListener
     }
 
     public void collided(Sprite a, Sprite b) {
-
-        // Checking for collision with player 2 paddle
-        if (ball.getY() > boardSize.y - (boardSize.y / 5) - Paddle.size().y - (Ball.size().y / 2)) {
-            ball.setYSpeed(-ball.getSpeed().getY());
-            ball.setPosition(ball.getX(), ball.getY() - ((int) Ball.size().y));
-        }
-
-        // Checking for collision with player 1 paddle
-        if (ball.getY() < (boardSize.y / 5) + Paddle.size().y + (Ball.size().y / 2)) {
-            ball.setYSpeed(-ball.getSpeed().getY());
-            ball.setPosition(ball.getX(), ball.getY() + ((int) Ball.size().y));
-        }
+        Ball.paddleBounce();
     }
 
     public boolean isGameOver() {

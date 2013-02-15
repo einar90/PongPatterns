@@ -36,4 +36,12 @@ public class Paddle extends Sprite {
         return new Point((int) paddleImage.getWidth(), (int) paddleImage.getHeight());
     }
 
+    public static int paddle1BounceLine() {
+        return (int) paddle1.getY() + size().y / 2;
+    }
+
+    public static int paddle2BounceLine() {
+        return (int) paddle2.getY() - size().y / 2;
+    }
+
 }

@@ -16,6 +16,9 @@ public class GameOverState extends State implements TouchListener {
     Font font = new Font(255, 255, 255, 20, Typeface.MONOSPACE, Typeface.NORMAL);
     private int winner;
 
+    private String textLine1 = "Game over";
+    private String textline3 = "Touch the screen to start a new game";
+
     public GameOverState() {
         if (Score.getScore1() > Score.getScore2()) {
             winner = 1;
@@ -28,9 +31,9 @@ public class GameOverState extends State implements TouchListener {
 
         canvas.drawPaint(Color.BLACK);
 
-        canvas.drawText("Game over", getGame().getWidth() / 2, getGame().getHeight() / 2, font);
-        canvas.drawText("Player " + winner + " won!", getGame().getWidth() / 2, (getGame().getHeight() / 2) + 30, font);
-        canvas.drawText("Touch the screen to start a new game", getGame().getWidth() / 2, (getGame().getHeight() / 2) + 100, font);
+        canvas.drawText(textLine1, getGame().getWidth() / 2, getGame().getHeight() / 2, font);
+        canvas.drawText("Player" + winner + "won!", getGame().getWidth() / 2, (getGame().getHeight() / 2) + 30, font);
+        canvas.drawText(textline3, getGame().getWidth() / 2, (getGame().getHeight() / 2) + 100, font);
     }
 
 

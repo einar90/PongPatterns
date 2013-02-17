@@ -112,7 +112,7 @@ public class GameState extends State implements TouchListener, CollisionListener
     }
 
     public boolean isGameOver() {
-        int winScore = 3;
+        int winScore = 21;
         return Score.getScore1() >= winScore || Score.getScore2() >= winScore;
     }
 

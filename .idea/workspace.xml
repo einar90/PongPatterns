@@ -13,7 +13,7 @@
     <file path="$PROJECT_DIR$/../Pong2/.idea/workspace.xml" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360925197857" ignored="false" />
     <file path="/GameState.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1361033324729" ignored="false" />
     <file path="/GameOverState.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1361033201430" ignored="false" />
-    <file path="/Dummy.txt" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1361032771548" ignored="false" />
+    <file path="/Dummy.txt" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1361033416152" ignored="false" />
     <file path="/Ball.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360955144668" ignored="false" />
     <file path="/Paddle.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360954826066" ignored="false" />
     <file path="/Score.java" changelist="2dec1670-bfbe-4016-943f-c4497e8eaf2e" time="1360954068515" ignored="false" />
@@ -99,8 +99,10 @@
       <file leaf-file-name="GameOverState.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="50" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.69539374">
-              <folding />
+            <state line="32" column="50" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.85586923">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,8 +160,8 @@
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/Score.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/Paddle.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/Ball.java" />
-        <option value="$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java" />
         <option value="$PROJECT_DIR$/src/com/example/PongPatterns/GameState.java" />
+        <option value="$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java" />
       </list>
     </option>
   </component>
@@ -487,7 +489,11 @@
       <created>1360955371815</created>
       <updated>1360955371816</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Tidied up strings in">
+      <created>1361033419609</created>
+      <updated>1361033419609</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -512,7 +518,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1540" height="1160" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -533,7 +539,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22124493" sideWeight="0.6976048" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3023952" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3023952" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -579,7 +585,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tuned wall bounce; reorganized code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tidied up strings in" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -605,6 +611,7 @@
     <MESSAGE value="Score strings moved to Score class" />
     <MESSAGE value="Moved all bounce operations to Ball class" />
     <MESSAGE value="Tuned wall bounce; reorganized code" />
+    <MESSAGE value="Tidied up strings in" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -650,7 +657,9 @@
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="34" selection-start="1374" selection-end="1374" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -690,7 +699,9 @@
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="34" selection-start="1371" selection-end="1371" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -757,8 +768,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/PongPatterns/GameOverState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="50" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.69539374">
-          <folding />
+        <state line="32" column="50" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.85586923">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

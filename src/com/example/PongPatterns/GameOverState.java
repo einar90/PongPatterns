@@ -12,10 +12,9 @@ import sheep.input.TouchListener;
 
 public class GameOverState extends State implements TouchListener {
 
-    private World world = new World();
     Font font = new Font(255, 255, 255, 20, Typeface.MONOSPACE, Typeface.NORMAL);
+    private World world = new World();
     private int winner;
-
     private String textLine1 = "Game over";
     private String textline3 = "Touch the screen to start a new game";
 
@@ -26,7 +25,6 @@ public class GameOverState extends State implements TouchListener {
         font.setTextAlign(Align.CENTER);
     }
 
-
     public void draw(Canvas canvas) {
 
         canvas.drawPaint(Color.BLACK);
@@ -35,7 +33,6 @@ public class GameOverState extends State implements TouchListener {
         canvas.drawText("Player" + winner + "won!", getGame().getWidth() / 2, (getGame().getHeight() / 2) + 30, font);
         canvas.drawText(textline3, getGame().getWidth() / 2, (getGame().getHeight() / 2) + 100, font);
     }
-
 
     public void update(float dt) {
         world.update(dt);
